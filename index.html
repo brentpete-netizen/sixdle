@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sixdle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>SIXDLE</h1>
+    <button id="help-btn" class="icon-btn" aria-label="How to play" title="How to play">?</button>
+    <button id="new-game-btn" class="icon-btn" aria-label="New game" title="New game">&#8635;</button>
+  </header>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <main>
+    <div id="board" class="board" aria-label="Game board"></div>
+  </main>
+
+  <div id="keyboard" class="keyboard" aria-label="On-screen keyboard"></div>
+
+  <div id="help-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="help-close" aria-label="Close">&times;</button>
+      <h2>How to Play</h2>
+      <p>Guess the SIXDLE word in 7 tries. Each guess must be a valid 6-letter word.</p>
+      <p>After each guess, tile colors show how close you were:</p>
+      <div class="example-row">
+        <div class="tile correct">S</div>
+        <div class="tile">P</div>
+        <div class="tile">I</div>
+        <div class="tile">D</div>
+        <div class="tile">E</div>
+        <div class="tile">R</div>
+      </div>
+      <p><strong>S</strong> is in the word and in the correct spot.</p>
+      <div class="example-row">
+        <div class="tile">B</div>
+        <div class="tile present">A</div>
+        <div class="tile">D</div>
+        <div class="tile">G</div>
+        <div class="tile">E</div>
+        <div class="tile">R</div>
+      </div>
+      <p><strong>A</strong> is in the word but in the wrong spot.</p>
+      <div class="example-row">
+        <div class="tile">C</div>
+        <div class="tile">A</div>
+        <div class="tile">R</div>
+        <div class="tile">R</div>
+        <div class="tile absent">O</div>
+        <div class="tile">T</div>
+      </div>
+      <p><strong>O</strong> is not in the word anywhere.</p>
+    </div>
+  </div>
+
+  <div id="end-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="end-close" aria-label="Close">&times;</button>
+      <h2 id="end-title"></h2>
+      <p id="end-message"></p>
+      <button id="play-again-btn" class="primary-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="words.js"></script>
+  <script src="dictionary.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
